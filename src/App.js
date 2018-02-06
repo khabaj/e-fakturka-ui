@@ -1,14 +1,38 @@
 import React, { Component } from 'react';
-import { Alert } from 'reactstrap';
+import Layout from './hoc/Layout/Layout';
 
 class App extends Component {
   render() {
     return (
-      <div>
-        <Alert color="success">
-          Reactstrap test!
-        </Alert>
-      </div>
+      <Layout>
+        abc <br/>
+        abc <br/>
+        abc <br/>
+        abc <br/>
+        abc <br/>
+        abc <br/>
+        abc <br/>
+        abc <br/>
+        abc <br/>
+        abc <br/>
+        abc <br/>
+        abc <br/>
+        abc <br/>
+        abc <br/>
+        abc <br/>
+        abc <br/>
+        abc <br/>
+        abc <br/>
+        abc <br/>
+        abc <br/>
+        abc <br/>
+        abc <br/>
+        abc <br/>
+        abc <br/>
+        abc <br/>
+        abc <br/>
+
+      </Layout>
     );
   }
 }
