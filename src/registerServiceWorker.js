@@ -1,3 +1,4 @@
+/* eslint-disable function-paren-newline,no-undef,no-use-before-define,arrow-parens,no-param-reassign,max-len, no-console */
 // In production, we register a service worker to serve assets from local cache.
 
 // This lets the app load faster on subsequent visits in production, and gives
