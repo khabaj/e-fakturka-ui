@@ -1,38 +1,27 @@
 import React, { Component } from 'react';
 import Layout from './hoc/Layout/Layout';
+import LoginPage from './pages/LoginPage/LoginPage';
+import RegistrationPage from './pages/RegistrationPage/RegistrationPage';
+import { Switch, Route, Redirect, BrowserRouter } from 'react-router-dom';
 
 class App extends Component {
-  render() {
-    return (
-      <Layout>
-        abc <br/>
-        abc <br/>
-        abc <br/>
-        abc <br/>
-        abc <br/>
-        abc <br/>
-        abc <br/>
-        abc <br/>
-        abc <br/>
-        abc <br/>
-        abc <br/>
-        abc <br/>
-        abc <br/>
-        abc <br/>
-        abc <br/>
-        abc <br/>
-        abc <br/>
-        abc <br/>
-        abc <br/>
-        abc <br/>
-        abc <br/>
-        abc <br/>
-        abc <br/>
-        abc <br/>
-        abc <br/>
-        abc <br/>
 
-      </Layout>
+  render() {
+    const routes = (
+      <Switch>
+        <Route path="/" exact component={LoginPage} />
+        <Route path="/login" exact component={LoginPage} />
+        <Route path="/register" exact component={RegistrationPage} />
+        <Redirect to="/" />
+      </Switch>
+    );
+
+    return (
+      <BrowserRouter>
+        <Layout>
+          {routes}
+        </Layout>
+      </BrowserRouter>
     );
   }
 }

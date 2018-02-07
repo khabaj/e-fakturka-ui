@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => (
   <nav className="navbar navbar-expand fixed-top navbar-light border-bottom bg-light">
@@ -6,10 +7,14 @@ const Navbar = () => (
     <div className="collapse navbar-collapse d-flex justify-content-end" id="navbarNav">
       <ul className="navbar-nav">
         <li className="nav-item">
-          <a className="nav-link" href="#">Rejestracja</a>
+          <Link to="/register" className="nav-link">
+            Rejestracja
+          </Link>
         </li>
         <li className="nav-item">
-          <a className="nav-link" href="#">Logowanie</a>
+          <Link to="/login" className="nav-link">
+            Logowanie
+          </Link>
         </li>
       </ul>
     </div>
