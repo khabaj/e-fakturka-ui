@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import Navbar from './../../components/Navigation/Navbar/Navbar';
+import TopNavbar from './../../components/Navigation/TopNavbar/TopNavbar';
 import './Layout.css';
 
 class Layout extends Component {
@@ -8,8 +8,8 @@ class Layout extends Component {
   render() {
     return (
       <React.Fragment>
-        <Navbar />
-        <main className="content container-fluid">
+        <TopNavbar />
+        <main className="content container-fluid pt-3">
           {this.props.children}
         </main>
       </React.Fragment>
