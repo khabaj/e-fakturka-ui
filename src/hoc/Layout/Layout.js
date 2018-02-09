@@ -4,7 +4,6 @@ import TopNavbar from './../../components/Navigation/TopNavbar/TopNavbar';
 import './Layout.css';
 
 class Layout extends Component {
-
   render() {
     return (
       <React.Fragment>

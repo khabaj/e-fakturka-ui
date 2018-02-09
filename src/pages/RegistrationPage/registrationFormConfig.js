@@ -1,25 +1,22 @@
-const registrationFormConfig = [
-  {
-    name: 'email',
+const registrationFormConfig = {
+  email: {
     type: 'email',
     label: 'E-mail:',
     placeholder: 'Wprowadź adres e-mail',
     value: ''
   },
-  {
-    name: 'password',
+  password: {
     type: 'password',
     label: 'Hasło:',
     placeholder: 'Wprowadź hasło',
     value: ''
   },
-  {
-    name: 'confirmPassword',
+  confirmPassword: {
     type: 'password',
     label: 'Powtórz hasło:',
     placeholder: 'Powtórz hasło',
     value: ''
   }
-];
+};
 
 export default registrationFormConfig;

@@ -4,24 +4,27 @@ import { PropTypes } from 'prop-types';
 
 const FormElements = (props) => {
 
-  const formElements = props.config.map(elConfig => {
-    return (
-      <FormGroup key={elConfig.name}>
-        {elConfig.label && <Label for={elConfig.name}>{elConfig.label}</Label>}
-        <Input
-          id={elConfig.name}
-          type={elConfig.type}
-          placeholder={elConfig.placeholder}
-        />
-      </FormGroup>
-    );
-  });
+  const formElements = Object.keys(props.config)
+    .map(controlKey => {
+      const control = props.config[controlKey]
+      return (
+        <FormGroup key={controlKey}>
+          {control.label && <Label for={control.name}>{control.label}</Label>}
+          <Input
+            id={controlKey}
+            type={control.type}
+            placeholder={control.placeholder}
+            value={control.value}
+            onChange={event => props.onChange(event, controlKey)}
+          />
+        </FormGroup>
+      );
+    });
   return formElements;
 };
 
 FormElements.propTypes = {
-  config: PropTypes.arrayOf(PropTypes.shape({
-    name: PropTypes.string.isRequired,
+  config: PropTypes.objectOf(PropTypes.shape({
     type: PropTypes.string,
     placeholder: PropTypes.string,
     label: PropTypes.string
