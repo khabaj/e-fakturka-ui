@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Card, CardBody, CardTitle, Form, Button } from 'reactstrap';
+
 import FormElements from '../../components/UI/FormElements/FormElements';
 import registrationFormConfig from './registrationFormConfig';
 import './RegistrationPage.css';
