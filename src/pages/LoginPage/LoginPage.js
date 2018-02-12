@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import loginFormConfig from './loginFormConfig';
-import FormElements from '../../components/UI/FormElements/FormElements';
 import { Card, CardBody, CardTitle, Form, Button } from 'reactstrap';
+
+import FormElements from '../../components/UI/FormElements/FormElements';
+import loginFormConfig from './loginFormConfig';
 import './LoginPage.css';
 
 class LoginPage extends Component {
