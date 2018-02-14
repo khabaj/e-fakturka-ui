@@ -1,1 +1,1 @@
-export * from './registration.js'
+export * from './registrationActions.js'

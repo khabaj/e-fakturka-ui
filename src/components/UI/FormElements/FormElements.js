@@ -1,5 +1,5 @@
 import React from 'react';
-import { Input, FormGroup, Label } from 'reactstrap';
+import { Input, FormGroup, Label, FormFeedback } from 'reactstrap';
 import { PropTypes } from 'prop-types';
 
 const FormElements = (props) => {
@@ -16,7 +16,9 @@ const FormElements = (props) => {
             placeholder={control.placeholder}
             value={control.value}
             onChange={event => props.onChange(event, controlKey)}
+            valid={control.valid}
           />
+          <FormFeedback>{control.error}</FormFeedback>
         </FormGroup>
       );
     });
