@@ -7,7 +7,7 @@ import FormElements from '../../components/UI/FormElements/FormElements';
 import registrationFormConfig from './registrationFormConfig';
 import './RegistrationPage.css';
 import * as actions from './../../store/actions/index';
-import InputValidator from './../../utils/InputValidator';
+import FormValidator from './../../utils/FormValidator';
 
 class RegistrationPage extends Component {
 
@@ -16,29 +16,35 @@ class RegistrationPage extends Component {
   }
 
   inputChangedHandler = (event, controlName) => {
+    const updatedControl = {
+      ...this.state.formControls[controlName],
+      value: event.target.value,
+    };
 
-    const validationResults =
-      InputValidator.validate(
-        event.target.value,
-        this.state.formControls[controlName].validation
-      );
-
+    const isValid = FormValidator.validateControl(updatedControl);
     const updatedControls = {
       ...this.state.formControls,
       [controlName]: {
-        ...this.state.formControls[controlName],
-        value: event.target.value,
-        valid: validationResults.isValid,
-        error: validationResults.errorMessage
+        ...updatedControl
       }
     };
-    this.setState({ formControls: updatedControls });
+    
+    this.setState({
+      formControls: updatedControls,
+      formIsValid: isValid
+    });
   };
 
   submitFormHandler = (event) => {
     event.preventDefault();
+    const updatedControls = { ...this.state.formControls };
+    const isFormValid = FormValidator.validateAllControls(updatedControls);
+    this.setState({
+      formControls: updatedControls,
+      formIsValid: isFormValid
+    });
 
-    if (this.validateForm()) {
+    if (this.state.formIsValid) {
       const registrationData = {
         username: this.state.formControls.login.value,
         password: this.state.formControls.password.value,
@@ -48,30 +54,6 @@ class RegistrationPage extends Component {
       this.props.register(registrationData);
     }
   };
-
-  validateForm() {
-    let isValid = true;
-    let updatedControls = { ...this.state.formControls };
-
-    Object.keys(this.state.formControls).forEach(controlName => {
-      const validationResults =
-        InputValidator.validate(
-          this.state.formControls[controlName].value,
-          this.state.formControls[controlName].validation
-        );
-      isValid = validationResults.isValid && isValid;
-      updatedControls = {
-        ...updatedControls,
-        [controlName]: {
-          ...updatedControls[controlName],
-          valid: validationResults.isValid,
-          error: validationResults.errorMessage
-        }
-      };
-    });
-    this.setState({ formControls: updatedControls });
-    return isValid;
-  }
 
   render() {
     const registrationForm = (
