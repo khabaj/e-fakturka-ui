@@ -14,7 +14,8 @@ const reactRules = {
 const globals = {
   "window": true,
   "console": true,
-  "document": true
+  "document": true,
+  "localStorage": true
 };
 
 module.exports = {

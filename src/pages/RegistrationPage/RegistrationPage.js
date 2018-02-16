@@ -31,7 +31,7 @@ class RegistrationPage extends Component {
     
     this.setState({
       formControls: updatedControls,
-      formIsValid: isValid
+      formIsValid: isValid && this.state.isFormValid
     });
   };
 
